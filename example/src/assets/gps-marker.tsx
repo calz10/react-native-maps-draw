@@ -2,7 +2,7 @@ import React from 'react';
 import { SvgXml } from 'react-native-svg';
 
 const GpsLocation = () => {
-  const svgMarkup = `
+    const svgMarkup = `
 <svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 477.112 477.112' style='enable-background:new 0 0 477.112 477.112;' xml:space='preserve'>
 <linearGradient id='SVGID_1_' gradientUnits='userSpaceOnUse' x1='-28.319' y1='557.986' x2='-28.319' y2='618.787' gradientTransform='matrix(8 0 0 -8 465.108 4941)'>
  <stop  offset='0' style='stop-color:#006DF0'/>
@@ -21,7 +21,7 @@ C294.521,137.087,269.469,112.035,238.556,112z M238.556,208c-22.091,0-40-17.909-4
 C278.53,190.08,260.636,207.974,238.556,208z'/>
 </svg>`;
 
-  return <SvgXml xml={svgMarkup} width={36} height={36} />;
+    return <SvgXml xml={svgMarkup} width={36} height={36} />;
 };
 
 export default GpsLocation;

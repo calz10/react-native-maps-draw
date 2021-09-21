@@ -29,39 +29,39 @@ import type { IGestureProps } from './types';
  */
 
 const GestureHandler: FC<IGestureProps> = ({
-  onEndTouchEvents,
-  onStartTouchEvents,
-  onChangeTouchEvents,
+    onEndTouchEvents,
+    onStartTouchEvents,
+    onChangeTouchEvents,
 }) => {
-  const pathRef = useRef<TouchPoint[]>([]);
+    const pathRef = useRef<TouchPoint[]>([]);
 
-  const panResponder = useRef(
-    PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onStartShouldSetPanResponderCapture: () => true,
-      onMoveShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponderCapture: () => true,
+    const panResponder = useRef(
+        PanResponder.create({
+            onStartShouldSetPanResponder: () => true,
+            onStartShouldSetPanResponderCapture: () => true,
+            onMoveShouldSetPanResponder: () => true,
+            onMoveShouldSetPanResponderCapture: () => true,
 
-      onPanResponderGrant: (e, gestureState) => {
-        pathRef.current = [];
-        onStartTouchEvents && onStartTouchEvents(e, gestureState);
-      },
-      onPanResponderMove: (event) => {
-        pathRef.current.push({
-          x: event.nativeEvent.locationX,
-          y: event.nativeEvent.locationY,
-        });
-        onChangeTouchEvents([...pathRef.current]);
-      },
-      onPanResponderRelease: () => {
-        const points = [...pathRef.current];
-        onChangeTouchEvents(points);
-        onEndTouchEvents && onEndTouchEvents(points);
-      },
-    })
-  ).current;
+            onPanResponderGrant: (e, gestureState) => {
+                pathRef.current = [];
+                onStartTouchEvents && onStartTouchEvents(e, gestureState);
+            },
+            onPanResponderMove: (event) => {
+                pathRef.current.push({
+                    x: event.nativeEvent.locationX,
+                    y: event.nativeEvent.locationY,
+                });
+                onChangeTouchEvents([...pathRef.current]);
+            },
+            onPanResponderRelease: () => {
+                const points = [...pathRef.current];
+                onChangeTouchEvents(points);
+                onEndTouchEvents && onEndTouchEvents(points);
+            },
+        }),
+    ).current;
 
-  return <View style={StyleSheet.absoluteFill} {...panResponder.panHandlers} />;
+    return <View style={StyleSheet.absoluteFill} {...panResponder.panHandlers} />;
 };
 
 export default GestureHandler;

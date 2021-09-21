@@ -24,7 +24,7 @@
   "scripts": {
     "test": "jest",
     "typescript": "tsc --noEmit",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "lint": "eslint \"**/*.{js,ts,tsx}\" --fix",
     "prepare": "bob build",
     "release": "release-it",
     "example": "yarn --cwd example",
@@ -137,10 +137,13 @@
     ]
   },
   "dependencies": {
+    "add": "^2.0.6",
     "geolib": "^3.3.1",
     "invariant": "^2.2.4",
+    "react-native-map-clustering": "^3.4.2",
     "react-native-maps": "^0.28.0",
     "react-native-reanimated": "2.1.0",
-    "react-native-svg": "^12.1.1"
+    "react-native-svg": "^12.1.1",
+    "yarn": "^1.22.11"
   }
 }
